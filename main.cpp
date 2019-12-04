@@ -3,7 +3,7 @@
 #include <vector>
 
 using namespace std;
-
+vector<string> listFromString(string line);
 
 int main()
 {
@@ -23,4 +23,23 @@ int main()
 
     return 0;
 }
-           
+vector<string> listFromString(string line)
+{
+        int count=0;
+        string word;
+        vector<string> wordList;
+        for(int i=0;i<line.length();i++)
+        {
+                if(line[i] != ',')
+                {
+                        word.append(1,line[i]);
+                }
+                else
+                {
+                        wordList.push_back(word);
+                        word="";
+                }
+        }
+        wordList.push_back(word);
+        return wordList;
+}
